@@ -1,0 +1,37 @@
+﻿@model   IEnumerable<MultiAppSystem.Models.NoticeData>
+
+    @{
+        ViewBag.Title = "AllPosts";
+    }
+
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body style="background-color:firebrick">
+
+        <h2>AllPosts</h2>
+
+       
+       
+         <div>
+@foreach (var item in Model)
+{
+    <div class="container-fluid"style="padding-top: 5px; height:auto; color: #fff;background-color: #BDBDBD;">
+        <div class="col-md-12" style="background-color: #263238;" >
+            <img src="@Url.Content(item.user_imglink)" alt="Image"class="img-rounded" style="padding-top: 5px;overflow: hidden; position: relative; width:75px; height:75px;float:left;">
+            <h5><span>&nbsp;</span>@Html.DisplayFor(modelItem => item.user_name)</h5>
+            <h6><span>&nbsp;Posted on:&nbsp;</span>@Html.DisplayFor(modelItem => item.last_active)</h6>
+            <h6><span> &nbsp;</span>@Html.DisplayFor(modelItem => item.noticetext)</h6>
+            <h6><span>&nbsp;</span>@Html.DisplayFor(modelItem => item.commentCount)<span> Comments&nbsp;</span>@Html.ActionLink("View", "AllComments", new { notice_id = item.notice_id, App_ID = Request.Params["app_id"] })</h6>  
+        </div>
+        <br />
+    </div>
+}
+    </div>
+</body>
+</html>

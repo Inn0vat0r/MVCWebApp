@@ -1,0 +1,66 @@
+﻿@model   IEnumerable<MultiAppSystem.Models.CommentData>
+@{
+    ViewBag.Title = "AllComments";
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:firebrick">
+
+    <h2>AllComments</h2>
+
+    <table class="table table-bordered table-responsive table-hover">
+        <tr class="danger">
+            <th>
+                User Image
+            </th>
+            <th>
+                User Name
+            </th>
+            <th>
+                Date Commented
+            </th>
+            <th>
+                Comment Description
+            </th>
+         </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr class="success">
+                <td>
+                    <img src="@Url.Content(item.profileimagelink)" alt="Image" style="overflow: hidden; position: relative; width:65px; height:65px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.timestamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.commenttext)
+                </td>
+                @*<td>
+        @Html.DisplayFor(modelItem => item.commentCount)
+    </td>
+    <td>
+            @Html.DisplayFor(modelItem => item.app_details.app_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.app_details.app_subtype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.member_count)
+        </td>*@
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

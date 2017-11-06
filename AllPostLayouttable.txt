@@ -1,0 +1,58 @@
+ <table class="table table-bordered table-responsive table-hover">
+            <tr class="danger">
+                <th>
+                    User Image
+                </th>
+                <th>
+                    User Name
+                </th>
+                <th>
+                    Date Posted/Updated
+                </th>
+                <th>
+                    Post Description
+                </th>
+                <th>
+                    Total Comments
+                </th>
+                <th>
+                    View Comments
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                
+                  <tr class="success">
+                   
+                    <td>
+                        <img src="@Url.Content(item.user_imglink)" alt="Image" style="overflow: hidden; position: relative; width:90px; height:90px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.user_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.last_active)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.noticetext)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.commentCount)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Comments", "AllComments", new { notice_id = item.notice_id,App_ID= Request.Params["app_id"] })
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.app_details.app_desc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.app_details.app_subtype)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.member_count)
+                        </td>*@
+                </tr>
+            }
+
+        </table>

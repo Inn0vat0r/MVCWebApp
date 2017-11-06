@@ -1,0 +1,157 @@
+﻿@model MultiAppSystem.Models.BuildingData
+@{
+    ViewBag.Title = "CreateSociety";
+}
+
+<h2>CreateSociety</h2>
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}
+
+<script type="text/javascript">
+        function GetDynamicTextBox1(value) {
+            var div = $("<div />");
+
+            var textBox = $("<input />").attr("type", "textbox").attr("name", "DynamicTextBox1");
+            textBox.val(value);
+            div.append(textBox);
+
+            var button = $("<input />").attr("type", "button").attr("value", "Remove");
+            button.attr("onclick", "RemoveTextBox1(this)");
+            div.append(button);
+
+            return div;
+        }
+        function GetDynamicTextBox2(value) {
+            var div = $("<div />");
+
+            var textBox = $("<input />").attr("type", "textbox").attr("name", "DynamicTextBox2");
+            textBox.val(value);
+            div.append(textBox);
+
+            var button = $("<input />").attr("type", "button").attr("value", "Remove");
+            button.attr("onclick", "RemoveTextBox2(this)");
+            div.append(button);
+
+            return div;
+        }
+        function AddTextBox1() {
+            var div = GetDynamicTextBox1("");
+            $("#TextBoxContainer1").append(div);
+        }
+        function AddTextBox2() {
+            var div = GetDynamicTextBox2("");
+            $("#TextBoxContainer2").append(div);
+        }
+        function RemoveTextBox1(button) {
+            $(button).parent().remove();
+        }
+        function RemoveTextBox2(button) {
+            $(button).parent().remove();
+        }
+        $(function () {
+            var values = eval('@Html.Raw(ViewBag.Project)');
+            if (values != null) {
+                $("#TextBoxContainer1").html("");
+                $(values).each(function () {
+                    $("#TextBoxContainer1").append(GetDynamicTextBox1(this));
+                });
+            }
+        });
+    $(function () {
+        var values = eval('@Html.Raw(TempData["Building"])');
+        if (values != null) {
+            $("#TextBoxContainer2").html("");
+            $(values).each(function () {
+                $("#TextBoxContainer2").append(GetDynamicTextBox2(this));
+            });
+        }
+    });
+</script>
+
+@using (Html.BeginForm("CreateProjectData", "Home", FormMethod.Post))
+{
+    <input id="btnAdd" type="button" value="Add Project Name" onclick="AddTextBox1()" />
+        <br />
+        <div id="TextBoxContainer1">
+            <!--Textboxes will be added here -->
+        </div>
+        <br />
+        <input type="submit" name="Save Project Data" value="Save Project Data" />
+        <br />
+        <br />
+}
+@using (Html.BeginForm("CreateBuildingData", "Home", FormMethod.Post))
+{
+    <input id="btnAdd" type="button" value="Add Building Name" onclick="AddTextBox2()" />
+    <br />
+        <div id="TextBoxContainer2">
+            <!--Textboxes will be added here -->
+        </div>
+        <br />
+        <input type="submit" name="Save Building Data" value="Save Building Data" />
+        <br />
+     
+        <br />
+}
+
+
+<br/>
+<h1><%= TempData["Building"]  %></h1>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>New Society App Creation</legend>
+        <br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.building_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.building_name)
+            @Html.ValidationMessageFor(model => model.building_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.floor_count, "No Of Floors")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.floor_count)
+            @Html.ValidationMessageFor(model => model.floor_count)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.flats_perfloor, "No Of Flats/Floor")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.flats_perfloor)
+            @Html.ValidationMessageFor(model => model.flats_perfloor)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.wing_count, "No Of Wings")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.wing_count)
+            @Html.ValidationMessageFor(model => model.wing_count)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.wing_names, "Wings Name")
+        </div>
+        <br />
+        <input id="btnAdd" type="button" value="Add Wing Name" onclick="AddTextBox()" />
+        <br />
+        <div id="TextBoxContainer" class="editor-field">
+            @Html.EditorFor(model => model.wing_names)
+            @Html.ValidationMessageFor(model => model.wing_names)
+            <br />
+        </div>
+        <br />
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}

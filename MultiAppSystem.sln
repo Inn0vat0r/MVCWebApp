@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiAppSystem", "MultiAppSystem\MultiAppSystem.csproj", "{592B1E27-920E-4D3F-A660-8E38264FD53A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{592B1E27-920E-4D3F-A660-8E38264FD53A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{592B1E27-920E-4D3F-A660-8E38264FD53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{592B1E27-920E-4D3F-A660-8E38264FD53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{592B1E27-920E-4D3F-A660-8E38264FD53A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,21 @@
+Client iD-
+297465557150-5chcihedsj61soj37ns0c40b29gi9bja.apps.googleusercontent.com
+
+
+Client Secret-
+YQ8_UNFM1OcefJjuTs9icLvX
+
+
+
+Severity	Code	Description	Project	File	Line	Suppression State
+Error		
+This project references NuGet package(s) that are missing on this computer. 
+Enable NuGet Package Restore to download them. 
+ For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.
+ The missing file is C:\Users\lifemapsolutions\Documents\Visual Studio 2015\Projects\gplus-quickstart-csharp-master\\.nuget\NuGet.targets.	gplus-quickstart-csharp	C:\Users\lifemapsolutions\Documents\Visual Studio 2015\Projects\gplus-quickstart-csharp-master\gplus-quickstart-csharp\gplus-quickstart-csharp.csproj	196	
+
+
+
+600283582844-th4qj1e09vin2boj80j700kodmq53890.apps.googleusercontent.com
+
+JRPWJpxL3QaJjjk3BEgeFevR
